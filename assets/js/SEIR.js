@@ -40,7 +40,7 @@ var R = board.create('turtle', [], {
 var s = board.create('slider', [
     [0, -0.5],
     [30, -0.5],
-    [0, 1.27E-6, 1]
+    [0, 0.01, 1]
 ], {
     name: 's'
 });
