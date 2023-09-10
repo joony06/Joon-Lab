@@ -116,11 +116,18 @@ var turtleMove = function(turtle, dx, dy) {
 
 // Animation
 var loop = function() {
-    var dS = mu.Value() * (1.0 - S.Y()) - beta.Value() * I.Y() * S.Y();
+    /**var dS = mu.Value() * (1.0 - S.Y()) - beta.Value() * I.Y() * S.Y();
     var dE = beta.Value() * I.Y() * S.Y() - (mu.Value() + a.Value()) * E.Y();
     var dI = a.Value() * E.Y() - (gamma.Value() + mu.Value()) * I.Y();
     var dR = gamma.Value() * I.Y() - mu.Value() * R.Y();
+**/
 
+    let N = S.Y() + E.Y() + I.Y() + R.Y();
+    let dS = -beta.Value() * S.Y() / N;
+    let dE = beta.Value() * S.Y() / N - mu.Value() * E.Y();
+    let dI = mu.Value() * E.Y() - gamma.Value() * I.Y();
+    let dR = gamma.Value() * I.Y();
+    
     turtleMove(S, delta, dS);
     turtleMove(E, delta, dE);
     turtleMove(I, delta, dI);
