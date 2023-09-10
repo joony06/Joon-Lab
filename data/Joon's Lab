@@ -1,0 +1,89 @@
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2><a href="./index.html" id="title">Joon's Lab</a></h2>
+						</header>
+						<p id="text">Hi! I'm PAi, I'm a student interested in Web Dev, InfoSec, etc.<br>
+									Here is my laboratory(actually more like a blog). Take a look at my project freely!</p>
+						<ul class="actions">
+							<!-- <li><a href="#" class="button">Learn More</a></li> -->
+						</ul>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Recent Work</h2>
+						<div class="row">
+							<article class="col-6 col-12-xsmall work-item">
+								<a id="SIR" href="./SIR.html" onclick="fetchPage('SIR')" class="image fit thumb"><img src="images/thumbs/SIR.jpeg" alt="" /></a>
+								<h3>SIR Model</h3>
+								<p>Implementatoin of SIR model in JS</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a id="SEIR" href="./SEIR.html" onclick="fetchPage('SEIR')" class="image fit thumb"><img src="images/thumbs/SEIR.png" alt="" /></a>
+								<h3>SEIR Model</h3>
+								<p>Implementatoin of SEIR model in JS</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a id="ECC" href="./ECC.html" onclick="fetchPage('ECC')" class="image fit thumb"><img src="images/thumbs/ECC.jpeg" alt="" /></a>
+								<h3>Elliptic Curve Cryptography</h3>
+								<p>Implementatoin of ECC in JS</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a id="SSGPage" href="https://coming-soon--36th-stduent-self-government.repl.co/" class="image fit thumb" target="_blank" rel="noopener noreferrer"><img src="images/thumbs/SSGPage1.png" alt="" /></a>
+								<h3>Hanil 36th Student Self-Governemnet</h3>
+								<p>Student Self-Government Home Page</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a id="Emailjs" href="https://email-js-test.backblue52.repl.co" class="image fit thumb" target="_blank" rel="noopener noreferrer"><img src="images/thumbs/Emailjs.jpeg" alt="" /></a>
+								<h3>Emailjs Lab</h3>
+								<p>Implementatoin of "Contact US" with Emailjs</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a id="Joyuri" href="https://drive.google.com/drive/folders/1-eMbXh7-dJ4rPi04e883Ee2CxtuQyU8B?usp=sharing" class="image fit thumb" target="_blank" rel="noopener noreferrer"><img src="images/JoonArchiveLogo.png" alt="" /></a>
+								<h3>Joon's Archive</h3>
+								<p>Pdf file storage for learning</p>
+							</article>
+						</div>
+						<ul class="actions">
+							<!-- <li><a href="#" class="button">Full Portfolio</a></li> -->
+						</ul>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Get In Touch</h2>
+						<p>Please feel free to contact me!</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<form method="post" action="#">
+									<div class="row gtr-uniform gtr-50">
+										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><input type="submit" value="Not working yet" /></li>
+								</ul>
+							</div>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+										<a href="https://goo.gl/maps/BjBLZ26K2vNRYuCz6" target="_blank">충청남도 공주시 어물길 81<br />
+										한일고등학교, 2225 최원준 / B206<br /></a>
+									</li>
+									<li>
+										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=developer@wonjoon.site" target="_blank">devloper@wonjoon.site</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>

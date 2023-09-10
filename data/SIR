@@ -1,0 +1,56 @@
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2><a href="./main.html" id="title">SIR</a></h2>
+						</header>
+						<p id="text">Implementatoin of SIR model in JS</p>
+						<ul class="actions">
+							<!-- <li><a href="#" class="button">Learn More</a></li> -->
+						</ul>
+					</section>
+
+					<div id="jxgbox" class="jxgbox" style="width: 600px; height: 600px;"></div>
+
+                    <ul class="actions">
+                        <li><a href="./main.html" class="button">Go back</a></li>
+                    </ul>
+
+
+					
+				<!-- Two -->
+				<!--	<section id="two">
+						<h2>Recent Work</h2>
+						<div class="row">
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/SIR.jpeg" alt="" /></a>
+								<h3>SIR Model</h3>
+								<p>Implementatoin of SIR model in JS</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/SEIR.png" alt="" /></a>
+								<h3>SEIR Model</h3>
+								<p>Implementatoin of SEIR model in JS</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/ECC.jpeg" alt="" /></a>
+								<h3>Elliptic Curve Cryptography</h3>
+								<p>Implementatoin of ECC in JS</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
+								<h3>Quam neque phasellus</h3>
+								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
+								<h3>Nunc enim commodo aliquet</h3>
+								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+							</article>
+							<article class="col-6 col-12-xsmall work-item">
+								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
+								<h3>Risus ornare lacinia</h3>
+								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+							</article>
+						</div>
+					</section> -->
