@@ -123,11 +123,11 @@ var loop = function() {
 **/
 
     let N = S.Y() + E.Y() + I.Y() + R.Y();
-    let dS = -beta.Value() * S.Y() / N;
-    let dE = beta.Value() * S.Y() / N - mu.Value() * E.Y();
+    let dS = -beta.Value() * S.Y() * I.Y() / N;
+    let dE = beta.Value() * S.Y() * I.Y() / N - mu.Value() * E.Y();
     let dI = mu.Value() * E.Y() - gamma.Value() * I.Y();
     let dR = gamma.Value() * I.Y();
-    
+
     turtleMove(S, delta, dS);
     turtleMove(E, delta, dE);
     turtleMove(I, delta, dI);
