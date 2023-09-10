@@ -61,7 +61,7 @@ var gamma = board.create('slider', [
 var mu = board.create('slider', [
     [0, -0.8],
     [30, -0.8],
-    [0, 0.0, 1]
+    [0, 0.3, 1]
 ], {
     name: 'μ'
 });
