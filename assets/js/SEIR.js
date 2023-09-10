@@ -12,8 +12,10 @@ const BOARDID = 'jxgbox'; // Insert your id here!
 
 const board = JXG.JSXGraph.initBoard(BOARDID, {
     axis: true,
+    grid: false,
     boundingbox: [-5, 1.2, 100, -1.2],
-    showNavigation: false
+    showNavigation: true,
+    showCopyright: false,
 });
 
 // Turtles
@@ -125,7 +127,7 @@ var loop = function() {
     turtleMove(R, delta, dR);
 
     t += delta;
-    if (t < 100.0) {
+    if (t < 365.0) {
         active = setTimeout(loop, 10);
     }
 };
