@@ -39,7 +39,7 @@ var s = board.create('slider', [
     [0, 0.03, 1]
 ], {
     name: 's'
-});
+}); 
 board.create('text', [10, -0.3, "initially infected population rate (on load: I(0)=1.27E-6)"]);
 var beta = board.create('slider', [
     [0, -0.7],
