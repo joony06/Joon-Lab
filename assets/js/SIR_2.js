@@ -126,3 +126,12 @@ var goOn = function() {
 
 clearTurtle();
 run();
+
+import { create, all } from 'mathjs'
+
+const config = { };
+const math = create(all, config);
+
+const result = math.derivative('sin(2x)', 'x');
+
+console.log(result);
