@@ -2,12 +2,12 @@ const BOARDID = 'box'; // Insert your id here!
 
 JXG.Options.axis.strokeColor = '#cccccc';
 const board = JXG.JSXGraph.initBoard(BOARDID, {
-    boundingbox: [-15, 10, 15, -10],
+    boundingbox: [-20, 15, 20, -15],
     axis: true
 });
 
-let a = board.create('slider', [[1, -3], [10, -3], [-10, 2.10, 10]], {name: 'a'});
-let b = board.create('slider', [[1, -4], [10, -4], [-10, -9.52, 10]], {name: 'b'});
+let a = board.create('slider', [[5, -3.5], [14, -3.5], [-50, 0, 50]], {name: 'a'});
+let b = board.create('slider', [[5, -5], [14, -5], [-50, 17, 50]], {name: 'b'});
 
 let c1 = board.create('functiongraph', [function(x) {
     return Math.sqrt(x * x * x + a.Value() * x + b.Value());
