@@ -19,21 +19,21 @@ const board = JXG.JSXGraph.initBoard(BOARDID, {
 });
 
 // Turtles
-var S = board.create('turtle', [], {
+const S = board.create('turtle', [], {
     strokeColor: 'blue',
     strokeWidth: 3
 });
-var I = board.create('turtle', [], {
+const I = board.create('turtle', [], {
     strokeColor: 'red',
     strokeWidth: 3
 });
-var R = board.create('turtle', [], {
+const R = board.create('turtle', [], {
     strokeColor: 'green',
     strokeWidth: 3
 });
 
 // Sliders
-var s = board.create('slider', [
+const s = board.create('slider', [
     [0, -0.6],
     [30, -0.6],
     [0, 0.03, 1]
@@ -41,7 +41,7 @@ var s = board.create('slider', [
     name: 's'
 }); 
 board.create('text', [10, -0.3, "initially infected population rate (on load: I(0)=1.27E-6)"]);
-var beta = board.create('slider', [
+const beta = board.create('slider', [
     [0, -0.7],
     [30, -0.7],
     [0, 0.21, 1]
@@ -49,7 +49,7 @@ var beta = board.create('slider', [
     name: 'β'
 });
 board.create('text', [45, -0.7, "β: infection rate"]);
-var gamma = board.create('slider', [
+const gamma = board.create('slider', [
     [0, -0.8],
     [30, -0.8],
     [0, 0.07, 1]
@@ -58,7 +58,7 @@ var gamma = board.create('slider', [
 });
 board.create('text', [45, -0.8, "γ: recovery rate = 1/(days of infection)"]);
 
-var t = 0; // global
+let t = 0; // global
 
 board.create('text', [10, -0.2,
     function() {
@@ -67,7 +67,7 @@ board.create('text', [10, -0.2,
 ]);
 
 // Reset the turtles
-var clearTurtle = function () {
+const clearTurtle = function () {
   S.cs();
   I.cs();
   R.cs();
@@ -78,7 +78,7 @@ var clearTurtle = function () {
 };
 
 // Start the animation
-var run = function() {
+const run = function() {
     S.setPos(0, 1.0 - s.Value());
     R.setPos(0, 0);
     I.setPos(0, s.Value());
@@ -88,15 +88,15 @@ var run = function() {
     loop();
 };
 
-var turtleMove = function (turtle, dx, dy) {
+const turtleMove = function (turtle, dx, dy) {
     turtle.moveTo([dx + turtle.X(), dy + turtle.Y()]);
 };
 
 // Animation
-var loop = function() {
-    var dS = -beta.Value() * S.Y() * I.Y();
-    var dR = gamma.Value() * I.Y();
-    var dI = -(dS + dR);
+const loop = function() {
+    const dS = -beta.Value() * S.Y() * I.Y();
+    const dR = gamma.Value() * I.Y();
+    const dI = -(dS + dR);
     turtleMove(S, delta, dS);
     turtleMove(R, delta, dR);
     turtleMove(I, delta, dI);
@@ -108,13 +108,13 @@ var loop = function() {
 };
 
 // Stop animation
-var stop = function() {
+const stop = function() {
     if (active) clearTimeout(active);
     active = null;
 };
 
 // Continue
-var goOn = function() {
+const goOn = function() {
     if (t > 0) {
         if (active === null) {
             active = setTimeout(loop, 10);
@@ -126,12 +126,3 @@ var goOn = function() {
 
 clearTurtle();
 run();
-
-import { create, all } from 'mathjs'
-
-const config = { };
-const math = create(all, config);
-
-const result = math.derivative('sin(2x)', 'x');
-
-console.log(result);
