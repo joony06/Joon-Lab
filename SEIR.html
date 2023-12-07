@@ -46,6 +46,8 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body class="is-preload">
     <!-- Header -->
@@ -69,13 +71,34 @@
         <header class="major">
           <h2><a href="./index.html" id="title">SEIR</a></h2>
         </header>
-        <p id="text">Implementatoin of SEIR model in JS</p>
+        <p id="text">Implementation of SEIR model in JS</p>
         <ul class="actions">
           <!-- <li><a href="#" class="button">Learn More</a></li> -->
         </ul>
       </section>
 
+      <p id="text">SEIR 모델은 간단한 전염병 예측 모델 중 하나이다.<br>
+        SEIR 모델에서 S, E, I, R은 각각 다음을 의마한다. <br>
+        S: Susceptible(감염 의심자)    |    전염병에 감염된 적이 없는 집단 <br>
+        E: Exposed(감염병 보유자)    |    전염병이 잠복기를 갖고 있는 집단<br>
+        I: Infectious(감염자)    |    전염병에 감염된 집단 <br>
+        R: Recoverd(회복자)    |    전염병에 감염된 후 회복된 집단 <br>
+        시각 t에 대한 \(S(t)\),  \(E(t)\),  \(I(t)\),  \(R(t)\)의 방정식은 각각 다음 미분방정식을 풀어 계산한다. <br><br>
+        <div style="font-size: 20px;">
+        \(\frac{dS(t)}{dt}=-\beta S(t)\frac{I(t)}{N}\) <br>
+        \(\frac{dE(t)}{dt}=\beta S(t)\frac{I(t)}{N}-\sigma E(t)\) <br>
+        \(\frac{dI(t)}{dt}=\sigma E(t)-\gamma I(t)\) <br>
+        \(\frac{dR(t)}{dt}=\gamma I(t)\) <br><br>
+        </div>
+        \(N\)은 전체 인구수,  \(\beta\)는 전염병 전파율,  \(\gamma\)는 전염병 회복율,  \(\sigma\)는 잠복기의 역수이다.
+        </p>
+
+      <br>
+      <br>
+      <div id="test"></div>
+      <br>
       <div id="jxgbox" class="jxgbox" style="width: 600px; height: 600px"></div>
+      
       <div id="seirButton">
         <input
           type="button"
@@ -167,8 +190,8 @@
           </li>
         </ul>
         <ul class="copyright">
-          <li>&copy; joony06</li>
-          <li>Design: joony06</li>
+          <li>&copy; joony</li>
+          <li>Design: joony</li>
         </ul>
       </div>
     </footer>
