@@ -1,179 +1,128 @@
-function start() {
-  const board = JXG.JSXGraph.initBoard("jxgbox", {
-    boundingbox: [-5, 100, 100, -5],
-    axis: true,
-    grid: false,
-    showCopyright: false,
-  });
+/*
+This example is licensed under a 
+Creative Commons Attribution 4.0 International License.
+https://creativecommons.org/licenses/by/4.0/
 
-  const beta_slider = board.create(
-    "slider",
-    [
-      [10.0, 95.5],
-      [40.0, 95.9],
-      [0.0, 0.75, 1.0],
-    ],
-    {
-      name: "&beta;",
-      strokeColor: "black",
-      fillColor: "black",
-    }
-  );
-
-  beta_text = board.create("text", [10, 92.5, "beta"], {
-    fixed: true,
-  });
-
-  const gamma_slider = board.create(
-    "slider",
-    [
-      [60.0, 95.5],
-      [90.0, 95.5],
-      [0.0, 0.25, 1.0],
-    ],
-    {
-      name: "&gamma;",
-      strokeColor: "black",
-      fillColor: "black",
-    }
-  );
-
-  gamma_text = board.create("text", [60, 92.5, "gamma"], {
-    fixed: true,
-  });
-
-  let startSusceptible = board.create("glider", [0, 95, board.defaultAxes.y], {
-    name: "Susceptible",
-    strokeColor: "blue",
-    fillColor: "blue",
-  });
-
-  let startInfected = board.create("glider", [0, 5, board.defaultAxes.y], {
-    name: "Infected",
-    strokeColor: "red",
-    fillColor: "red",
-  });
-
-  let startRecovered = board.create("glider", [0, 0, board.defaultAxes.y], {
-    name: "Recovered",
-    strokeColor: "green",
-    fillColor: "green",
-  });
-
-  let T = 1000;
-  let N = 1000;
-  let g3 = null;
-  let g4 = null;
-  let g5 = null;
-
-  function solve_ode(x0, I, T, f) {
-    let data = [x0];
-    let dt = (I[1] - I[0]) / T;
-    for (let i = 1; i < T; ++i) {
-      let dS_dt = data[i - 1][0] + dt * f(0, data[i - 1])[0];
-      let dI_dt = data[i - 1][1] + dt * f(0, data[i - 1])[1];
-      let dR_dt = data[i - 1][2] + dt * f(0, data[i - 1])[2];
-      data.push([dS_dt, dI_dt, dR_dt]);
-    }
-
-    return data;
-  }
-
-  function ode() {
-    let I = [0, 1000];
-    let T = 1000;
-
-    let f = function (t, x) {
-      let beta = beta_slider.Value();
-      let gamma = gamma_slider.Value();
-
-      let y = [];
-      y[0] = (-beta * x[0] * x[1]) / N;
-      y[1] = (beta * x[0] * x[1]) / N - gamma * x[1];
-      y[2] = gamma * x[1];
-
-      return y;
-    };
-
-    let x0 = [startSusceptible.Y(), startInfected.Y(), startRecovered.Y()];
-
-    let data = solve_ode(x0, I, T, f);
-
-    let q = I[0];
-    let h = (I[1] - I[0]) / T;
-    for (let i = 0; i < data.length; i++) {
-      data[i].push(q);
-      q += h;
-    }
-
-    return data;
-  }
-
-  let data = ode();
-
-  let t = [];
-  let dataSusceptible = [];
-  let dataInfected = [];
-  let dataRecovered = [];
-
-  for (let i = 0; i < data.length; i++) {
-    dataSusceptible[i] = data[i][0];
-    dataInfected[i] = data[i][1];
-    dataRecovered[i] = data[i][2];
-    t[i] = data[i][3];
-  }
-
-  g3 = board.create("curve", [t, dataSusceptible], {
-    strokeColor: "blue",
-    strokeWidth: "2px",
-  });
-
-  g3.updateDataArray = function () {
-    let data = ode();
-    this.dataX = [];
-    this.dataY = [];
-    for (let i = 0; i < data.length; i++) {
-      this.dataX[i] = t[i];
-      this.dataY[i] = data[i][0];
-    }
-  };
-
-  g4 = board.create("curve", [t, dataInfected], {
-    strokeColor: "red",
-    strokeWidth: "2px",
-  });
-
-  g4.updateDataArray = function () {
-    let data = ode();
-    this.dataX = [];
-    this.dataY = [];
-    for (let i = 0; i < data.length; i++) {
-      this.dataX[i] = t[i];
-      this.dataY[i] = data[i][1];
-    }
-  };
-
-  g5 = board.create("curve", [t, dataRecovered], {
-    strokeColor: "green",
-    strokeWidth: "2px",
-  });
-
-  g5.updateDataArray = function () {
-    let data = ode();
-    this.dataX = [];
-    this.dataY = [];
-    for (let i = 0; i < data.length; i++) {
-      this.dataX[i] = t[i];
-      this.dataY[i] = data[i][2];
-    }
-  };
-}
-
-/* window.addEventListener("hashchange", function () {
-  if (location.hash.substring(1) == "SIR") {
-    start();
-  }
-});
+Please note that you have to mention 
+The Center of Mobile Learning with Digital Technology
+in the credits.
 */
 
-start()
+const BOARDID = 'jxgbox'; // Insert your id here!
+
+const board = JXG.JSXGraph.initBoard(BOARDID, {
+    axis: true,
+    grid: false,
+    boundingbox: [-5, 1.2, 100, -1.2],
+    showNavigation: true,
+    showCopyright: false,
+});
+
+// Turtles
+const S = board.create('turtle', [], {
+    strokeColor: 'blue',
+    strokeWidth: 3
+});
+const I = board.create('turtle', [], {
+    strokeColor: 'red',
+    strokeWidth: 3
+});
+const R = board.create('turtle', [], {
+    strokeColor: 'green',
+    strokeWidth: 3
+});
+
+// Sliders
+const s = board.create('slider', [
+    [0, -0.6],
+    [30, -0.6],
+    [0, 0.03, 1]
+], {
+    name: 's'
+}); 
+board.create('text', [10, -0.3, "initially infected population rate (on load: I(0)=1.27E-6)"]);
+const beta = board.create('slider', [
+    [0, -0.7],
+    [30, -0.7],
+    [0, 0.21, 1]
+], {
+    name: 'β'
+});
+board.create('text', [45, -0.7, "β: infection rate"]);
+const gamma = board.create('slider', [
+    [0, -0.8],
+    [30, -0.8],
+    [0, 0.07, 1]
+], {
+    name: 'γ'
+});
+board.create('text', [45, -0.8, "γ: recovery rate = 1/(days of infection)"]);
+
+let t = 0; // global
+
+board.create('text', [10, -0.2,
+    function() {
+        return "Day " + t + ": infected=" + (7900000 * I.Y()).toFixed(1) + " recovered=" + (7900000 * R.Y()).toFixed(1);
+    }
+]);
+
+// Reset the turtles
+const clearTurtle = function () {
+  S.cs();
+  I.cs();
+  R.cs();
+
+  S.hideTurtle();
+  I.hideTurtle();
+  R.hideTurtle();
+};
+
+// Start the animation
+const run = function() {
+    S.setPos(0, 1.0 - s.Value());
+    R.setPos(0, 0);
+    I.setPos(0, s.Value());
+
+    delta = 1; // global
+    t = 0; // global
+    loop();
+};
+
+const turtleMove = function (turtle, dx, dy) {
+    turtle.moveTo([dx + turtle.X(), dy + turtle.Y()]);
+};
+
+// Animation
+const loop = function() {
+    const dS = -beta.Value() * S.Y() * I.Y();
+    const dR = gamma.Value() * I.Y();
+    const dI = -(dS + dR);
+    turtleMove(S, delta, dS);
+    turtleMove(R, delta, dR);
+    turtleMove(I, delta, dI);
+
+    t += delta;
+    if (t < 365.0) {
+        active = setTimeout(loop, 10);
+    }
+};
+
+// Stop animation
+const stop = function() {
+    if (active) clearTimeout(active);
+    active = null;
+};
+
+// Continue
+const goOn = function() {
+    if (t > 0) {
+        if (active === null) {
+            active = setTimeout(loop, 10);
+        }
+    } else {
+        run();
+    }
+};
+
+clearTurtle();
+run();
