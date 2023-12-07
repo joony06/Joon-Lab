@@ -1,5 +1,6 @@
 import { create, all, tan } from 'mathjs';
 
+
 const config = {};
 const math = create(all, config);
 
